@@ -5,6 +5,12 @@
 ```
 - name: rollback-notes-to-confluence
   image: lstama/rollback-confluence-drone
+  failure: ignore
+  when:
+    event:
+      - tag
+    ref:
+      - refs/tags/*-[Rr][Oo][Ll][Ll][Bb][Aa][Cc][Kk]
   settings:
     GITHUB_USER:
       from_secret: GITHUB_USER
